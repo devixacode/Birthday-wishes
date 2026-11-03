@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#170c24" />
+  <title>For My Laado 💗</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="ambient" aria-hidden="true" id="ambient"></div>
+  <audio id="birthdaySong" src="assets/audio/birthday-song.mp3" loop preload="none"></audio>
+
+  <button class="music-control hidden" id="musicControl" aria-label="Toggle music">♫ <span id="musicLabel">Music
+      off</span></button>
+  <button class="logout hidden" id="logoutBtn">Logout ↗</button>
+
+  <main>
+    <section class="screen active intro" id="introScreen">
+      <div class="orb orb-one"></div>
+      <div class="orb orb-two"></div>
+      <div class="eyebrow">A LITTLE SURPRISE, MADE WITH LOVE</div>
+      <div class="countdown" id="countdown" aria-live="polite">3</div>
+      <p class="intro-line" id="introLine">Something lovely is waiting for you…</p>
+      <div class="mini-couple" aria-hidden="true"><span>🧸</span><span class="heart-between">💗</span><span>🧸</span>
+      </div>
+      <h1 class="intro-title hidden" id="introTitle">Happy Birthday,<br><em>My Laado!</em> 🎂</h1>
+      <p class="intro-copy hidden" id="introCopy">A tiny world, made just for you.</p>
+      <button class="primary hidden" id="openSurprise">Open Your Surprise <span>♡</span></button>
+      <div class="bottom-note">made with a little extra love ✦</div>
+    </section>
+
+    <section class="screen welcome" id="welcomeScreen">
+      <div class="eyebrow">TODAY IS YOUR DAY ✨</div>
+      <div class="cake" aria-label="Birthday cake">🎂</div>
+      <p class="script">For my favourite person</p>
+      <h1>Happy Birthday,<br><em>My Favourite Human!</em> ❤️</h1>
+      <p class="lead">Today is all about you, my love. May your days be full of peace, laughter and beautiful surprises.
+      </p>
+      <div class="wish-chip">🫶🏻 endless duas • warm hugs • happy days</div>
+      <button class="primary" id="continueBtn">Continue 💗</button>
+    </section>
+
+    <section class="screen login" id="loginScreen">
+      <div class="glass-card">
+        <div class="tiny-heart">♡</div>
+        <div class="eyebrow">ONLY TWO NAMES, ONE LITTLE UNIVERSE</div>
+        <h2>Unlock your<br><em>birthday magic</em></h2>
+        <p class="muted">Tell this little universe who it's made for.</p>
+        <form id="loginForm">
+          <label for="yourName">Your name 💕</label>
+          <input id="yourName" name="yourName" autocomplete="name" placeholder="Type your name..." maxlength="40"
+            required />
+          <label for="partnerName">Your Laado's name ❤️</label>
+          <input id="partnerName" name="partnerName" placeholder="Type their name..." maxlength="40" required />
+          <p class="form-error" id="formError" role="alert"></p>
+          <button class="primary full" type="submit">Unlock My Surprise 🔐</button>
+        </form>
+        <p class="tiny-note">Your names stay in this page only.</p>
+      </div>
+    </section>
+
+    <section class="screen main-page" id="mainScreen">
+      <nav class="top-nav">
+        <span class="brand">for <em>my Laado</em> ♡</span>
+        <div class="nav-dots" id="navDots" aria-label="Page navigation"></div>
+      </nav>
+
+      <div class="page active-page" data-page="0">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <div class="eyebrow">A DAY AS SPECIAL AS YOU</div>
+            <p class="script">To my one and only</p>
+            <h1>Happy Birthday,<br><em id="heroName">My Jaan</em> 🫀</h1>
+            <p class="lead" id="personalWelcome">Meri jaan, meri duniya. Today, every little sparkle is for you.</p>
+            <p class="body-copy">Allah tumhein hamesha khush rakhe, sehat aur lambi zindagi ata farmaye, har buri nazar
+              se bachaye, aur tumhari zindagi mein kisi cheez ki kami na ho. Aameen. 🤲🏻</p>
+            <button class="primary" data-goto="1">Read My Letter 💌</button>
+          </div>
+          <div class="hero-art">
+            <div class="halo"></div>
+            <div class="floating-heart">💗</div>
+            <div class="big-teddy">🧸</div>
+            <div class="small-teddy">🧸</div>
+            <div class="love-stamp">YOU<br>ARE<br>LOVED</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page" data-page="1">
+        <div class="section-heading">
+          <div class="eyebrow">WORDS FROM MY HEART</div>
+          <h2>A little letter <em>for you</em> 💌</h2>
+          <p>Tap the envelope to open your letter.</p>
+        </div>
+        <button class="envelope-wrap" id="envelopeBtn" aria-label="Open love letter"><span
+            class="envelope">💌</span><span class="envelope-hint">open me, jaan ♡</span></button>
+        <article class="letter-card hidden" id="letterCard">
+          <p class="script">My jaanan,</p>
+          <p id="letterText"></p>
+          <p class="letter-sign" id="letterSign">Forever your person 💗</p>
+        </article>
+      </div>
+
+      <div class="page" data-page="2">
+        <div class="section-heading">
+          <div class="eyebrow">LITTLE MOMENTS, BIG FEELINGS</div>
+          <h2>Our beautiful <em>memories</em> 📸</h2>
+          <p>Add your own pictures in <code>assets/images/</code> and update the paths in <code>script.js</code>.</p>
+        </div>
+        <div class="gallery" id="gallery">
+          <button class="photo-card" data-photo="assets/images/photo1.jpg"><img src="assets/images/photo1.jpg"
+              alt="Memory one"
+              onerror="this.src='https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=700&q=80'"><span>My
+              favourite person ❤️</span></button>
+          <button class="photo-card" data-photo="assets/images/photo2.jpg"><img src="assets/images/photo2.jpg"
+              alt="Memory two"
+              onerror="this.src='https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=700&q=80'"><span>My
+              whole world 🌏</span></button>
+          <button class="photo-card" data-photo="assets/images/photo3.jpg"><img src="assets/images/photo3.jpg"
+              alt="Memory three"
+              onerror="this.src='https://images.unsplash.com/photo-1518621012118-6d3f8f0c6f6e?auto=format&fit=crop&w=700&q=80'"><span>Forever
+              special ✨</span></button>
+          <button class="photo-card" data-photo="assets/images/photo4.jpg"><img src="assets/images/photo4.jpg"
+              alt="Memory four"
+              onerror="this.src='https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=700&q=80'"><span>Mera
+              buguuuu 🧸</span></button>
+          <button class="photo-card" data-photo="assets/images/photo5.jpg"><img src="assets/images/photo5.jpg"
+              alt="Memory five"
+              onerror="this.src='https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=700&q=80'"><span>My
+              happy place 💞</span></button>
+          <button class="photo-card" data-photo="assets/images/photo6.jpg"><img src="assets/images/photo6.jpg"
+              alt="Memory six"
+              onerror="this.src='https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=700&q=80'"><span>Just
+              us, always 🔐</span></button>
+        </div>
+        <div class="lightbox hidden" id="lightbox"><button class="lightbox-close" id="lightboxClose"
+            aria-label="Close photo">×</button><img id="lightboxImage" alt="Selected memory">
+          <p id="lightboxCaption"></p>
+        </div>
+      </div>
+
+      <div class="page" data-page="3">
+        <div class="section-heading">
+          <div class="eyebrow">THE LITTLE THINGS</div>
+          <h2>Reasons you're <em>special</em> ❤️</h2>
+          <p>Tap a card to reveal a little piece of my heart.</p>
+        </div>
+        <div class="reasons-grid" id="reasonsGrid">
+          <button class="reason-card"><span>😊</span><strong>Your smile</strong><small>tap to reveal ♡</small>
+            <p>You make my days brighter with your beautiful smile.</p>
+          </button>
+          <button class="reason-card"><span>🌏</span><strong>My whole world</strong><small>tap to reveal ♡</small>
+            <p>You mean the world to me, meri jaan.</p>
+          </button>
+          <button class="reason-card"><span>🤲🏻</span><strong>My duas</strong><small>tap to reveal ♡</small>
+            <p>I pray Allah fills your life with peace, health and happiness.</p>
+          </button>
+          <button class="reason-card"><span>🫂</span><strong>My comfort</strong><small>tap to reveal ♡</small>
+            <p>Thank you for making my life more meaningful.</p>
+          </button>
+          <button class="reason-card"><span>✨</span><strong>Rare & special</strong><small>tap to reveal ♡</small>
+            <p>You are rare and special to me, my everything.</p>
+          </button>
+          <button class="reason-card"><span>👑</span><strong>My shehzada</strong><small>tap to reveal ♡</small>
+            <p>My attitude king, twinkle of my eyes.</p>
+          </button>
+          <button class="reason-card"><span>💗</span><strong>My happiness</strong><small>tap to reveal ♡</small>
+            <p>You deserve all the happiness in the world, today and always.</p>
+          </button>
+          <button class="reason-card"><span>🔐</span><strong>Our bond</strong><small>tap to reveal ♡</small>
+            <p>No amount of distance or pain can take away what we mean to each other.</p>
+          </button>
+        </div>
+      </div>
+
+      <div class="page" data-page="4">
+        <div class="section-heading">
+          <div class="eyebrow">FROM THEN TO ALWAYS</div>
+          <h2>Our little <em>love story</em> 🌷</h2>
+          <p>Edit these milestones with your own dates and memories.</p>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item"><span>01</span>
+            <div><small>THE BEGINNING</small>
+              <h3>The day we met 🌸</h3>
+              <p>The beginning of a story that became so special to me.</p>
+            </div>
+          </div>
+          <div class="timeline-item"><span>02</span>
+            <div><small>THE LITTLE THINGS</small>
+              <h3>Our first conversation 💬</h3>
+              <p>A simple moment that found a permanent place in my heart.</p>
+            </div>
+          </div>
+          <div class="timeline-item"><span>03</span>
+            <div><small>MY FAVOURITE MEMORY</small>
+              <h3>A moment to keep ✨</h3>
+              <p>Some memories become precious just because they're with you.</p>
+            </div>
+          </div>
+          <div class="timeline-item"><span>04</span>
+            <div><small>MY WISH</small>
+              <h3>More happy days ahead 🤲🏻</h3>
+              <p>May Allah bless your every step with peace, kindness and success.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page" data-page="5">
+        <div class="section-heading">
+          <div class="eyebrow">CUTE COUPLE CORNER</div>
+          <h2>My buguuuu <em>phuchuuu</em> 🧸</h2>
+          <p>A tiny bit of cuteness, just for you.</p>
+        </div>
+        <div class="couple-scene">
+          <div class="couple-bear" id="bearOne">🧸</div>
+          <div class="scene-heart" id="sceneHeart">💞</div>
+          <div class="couple-bear" id="bearTwo">🧸</div>
+          <div class="sparkle">✦</div>
+          <div class="sparkle s2">✧</div>
+        </div>
+        <p class="cute-message" id="cuteMessage">Meri makhan malaiii 🤭😘</p>
+        <button class="primary" id="cuteBtn">Send a little love 💗</button>
+      </div>
+
+      <div class="page" data-page="6">
+        <div class="section-heading">
+          <div class="eyebrow">DUAS, CAKE & CONFETTI</div>
+          <h2>Make a birthday <em>wish</em> 🎂</h2>
+        </div>
+        <div class="celebration-cake">🎂</div>
+        <h3 class="wish-title" id="wishTitle">Aameen, Sum Aameen 🤲🏻</h3>
+        <p class="wish-copy" id="wishCopy">Allah g bless you with good luck, happiness, love, good health and success in
+          every walk of your life.</p>
+        <button class="primary" id="wishBtn">Make a Birthday Wish ✨</button>
+        <div class="confetti-zone" id="confettiZone" aria-hidden="true"></div>
+      </div>
+
+      <div class="page final-page" data-page="7">
+        <div class="final-heart">💗</div>
+        <div class="eyebrow">ONE LAST THING, MY LOVE</div>
+        <h2 id="finalTitle">You're my whole<br><em>entire world.</em> 🌏</h2>
+        <p class="final-copy">Alhamdulillah, Allah g brought me you. ❤️ You are always in my mind, my heartbeat, my
+          happiness and my little universe. Thank you for making my days brighter. You are rare and special for me, my
+          everything. 🫀🫶🏻</p>
+        <p class="final-dua">Allah tumhein hamesha khush rakhe, har buri nazar se bachaye aur tumhari zindagi ko sukoon
+          aur mohabbat se bhar de. Aameen. 🤲🏻</p>
+        <button class="primary" id="finalSurpriseBtn">One More Surprise 💌</button>
+        <p class="hidden extra-surprise" id="extraSurprise">Happy birthday, meri jaan! 🥳❤️ You deserve all happiness in
+          the world today and always. Love youuu! 💞</p>
+        <button class="ghost" id="startAgainBtn">Start Again ↺</button>
+      </div>
+
+      <div class="page-footer">
+        <button class="ghost" id="homeBtn">⌂ Home</button>
+        <div><button class="ghost" id="prevBtn">← Previous</button><span id="pageCounter">1 / 8</span><button
+            class="ghost" id="nextBtn">Next →</button></div>
+      </div>
+    </section>
+  </main>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+
+</html>
